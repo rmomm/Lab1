@@ -50,6 +50,4 @@ int main() {
     cout << "Euler function (" << n << ") = " << eulerFunc(n) << endl;
     return 0;
 }
-"# Lab1" 
-"# Lab1" 
-"# Lab1" 
+ 
