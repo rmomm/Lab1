@@ -27,7 +27,7 @@ jobs:
       
       - name: Lint code
         run: |
-          clang-tidy *.cpp --checks=* -- -std=c++11
+          clang-tidy Lab1.cpp --checks=* -- -std=c++11
 
       
       - name: Build project
