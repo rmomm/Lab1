@@ -27,12 +27,15 @@ jobs:
       
       - name: Lint code
         run: |
-          clang-tidy Lab1.cpp
+          cppcheck --enable=all --inconclusive --max-info=10 Lab1.cpp
 
       
       - name: Build project
         run: |
-          g++ -o my_program Lab1.cpp
+          mkdir build
+          cd build
+          cmake ..
+          make
 
       
       - name: Run tests
