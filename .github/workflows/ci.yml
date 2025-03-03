@@ -22,7 +22,7 @@ jobs:
       - name: Set up compiler
         run: |
           sudo apt-get update
-          sudo apt-get install -y g++ cmake make
+          sudo apt-get install -y g++ cmake make cppcheck
 
       
       - name: Lint code
@@ -32,11 +32,7 @@ jobs:
       
       - name: Build project
         run: |
-          mkdir build
-          cd build
-          cmake ..
-          make
-
+          g++ -o my_program Lab1.cpp
       
       - name: Run tests
         run: |
