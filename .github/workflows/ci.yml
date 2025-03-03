@@ -27,7 +27,7 @@ jobs:
       
       - name: Lint code
         run: |
-          cppcheck --enable=all --inconclusive --maxn=10 src/Lab1.cpp
+          cppcheck --enable=all --inconclusive src/Lab1.cpp
 
       
       - name: Build project
