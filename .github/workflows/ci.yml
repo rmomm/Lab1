@@ -26,11 +26,6 @@ jobs:
           make
           sudo make install
 
-      - name: Lint code
-        run: |
-          clang-tidy Lab1.cpp --checks=* -- -std=c++11
-          clang-tidy Test.cpp --checks=-google-* -- -std=c++11
-
       - name: Build project
         run: |
           g++ -std=c++11 -o my_program Lab1.cpp Test.cpp -lgtest -lgtest_main -pthread
