@@ -1,7 +1,6 @@
 name: C++
 
 on:
-
   push: 
     branches: [ "master" ]
   pull_request:
@@ -15,18 +14,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
       - uses: actions/checkout@v3
 
-      
-      - name: Set up compiler
+      - name: Set up compiler and Google Test
         run: |
           sudo apt-get update
-          sudo apt-get install -y g++ cmake make cppcheck clang-tidy
-
-      - name: Install Google Test
-        run: |
-          sudo apt-get install -y libgtest-dev
+          sudo apt-get install -y g++ cmake make cppcheck clang-tidy libgtest-dev
+          cd /usr/src/gtest
+          sudo cmake .
+          sudo make
+          sudo cp *.a /usr/lib
 
       - name: Lint code
         run: |
@@ -36,7 +33,7 @@ jobs:
       - name: Build project
         run: |
           g++ -std=c++11 -o my_program Lab1.cpp Test.cpp -lgtest -lgtest_main -pthread
-      
+
       - name: Run tests
         run: |
-          ./my_program 
+          ./my_program
