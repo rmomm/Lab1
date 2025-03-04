@@ -30,9 +30,8 @@ jobs:
 
       - name: Lint code
         run: |
-          clang-tidy Lab1.cpp --checks=readability-* -- -std=c++11
-          clang-tidy Test.cpp --checks=-google-* -- -std=c++11
-
+          clang-tidy Lab1.cpp --checks=* -- -std=c++11 -header-filter='.*'
+          clang-tidy Test.cpp --checks=-google-* -- -std=c++11 -header-filter='.*'
 
       
       - name: Build project
