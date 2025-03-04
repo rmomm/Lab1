@@ -24,15 +24,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y g++ cmake make cppcheck clang-tidy
 
-      
+      - name: Install Google Test
+        run: |
+          sudo apt-get install -y libgtest-dev
+
       - name: Lint code
         run: |
-          clang-tidy Lab1.cpp --checks=* -- -std=c++11
+          clang-tidy '**/*.cpp' --checks=* -- -std=c++11
 
       
       - name: Build project
         run: |
-          g++ -o my_program Lab1.cpp
+          g++ -std=c++11 -o my_program Lab1.cpp Test.cpp -lgtest -lgtest_main -pthread
       
       - name: Run tests
         run: |
