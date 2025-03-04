@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include <cmath>
 #include <vector>
-#include "..\lab1\lab1.cpp"
+#include "..\Lab1\Lab1.cpp"
 
 using namespace std;
 
